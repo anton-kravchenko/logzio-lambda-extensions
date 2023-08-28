@@ -137,7 +137,7 @@ func (c *Client) Subscribe(types []EventType, bufferingCfg BufferingCfg, destina
 	defer resp.Body.Close()
 
 	if resp.StatusCode == http.StatusAccepted {
-		fmt.Println("WARNING!!! Logs API is not supported! Is this extension running in a local sandbox?")
+
 	} else if resp.StatusCode != http.StatusOK {
 		body, err := ioutil.ReadAll(resp.Body)
 		if err != nil {

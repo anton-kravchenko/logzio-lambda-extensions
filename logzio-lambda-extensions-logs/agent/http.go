@@ -7,7 +7,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/logzio/logzio-go"
+	"github.com/anton-kravchenko/logzio-go"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -75,8 +75,6 @@ func (h *LogsApiHttpListener) http_handler(w http.ResponseWriter, r *http.Reques
 		logger.Errorf("Error reading body: %+v", err)
 		return
 	}
-
-	fmt.Println("Logs API event received:", string(body))
 
 	// Puts the log message into the queue
 	err = h.logQueue.Put(string(body))

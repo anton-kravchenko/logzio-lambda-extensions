@@ -1,7 +1,7 @@
 package agent
 
 import (
-	"github.com/logzio/logzio-go"
+	"github.com/anton-kravchenko/logzio-go"
 	"logzio-lambda-extensions-logs/utils"
 
 	"os"
@@ -36,7 +36,6 @@ func NewLogzioLogger() (*logzio.LogzioSender, error) {
 			logzio.SetDebug(os.Stdout),
 			logzio.SetinMemoryCapacity(maxBulkSizeBytes), //bytes
 			logzio.SetDrainDuration(time.Second*5),
-			logzio.SetDebug(os.Stdout),
 		)
 	} else {
 		logzioLogger, err = logzio.New(
